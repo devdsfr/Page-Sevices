@@ -18,13 +18,13 @@ class App
         /*
          * Constantes do sistema
          */
-        define('APP_HOST'       , $_SERVER['HTTP_HOST'] . "/mvc-php-crud-produto-1n");
+        define('APP_HOST'       , $_SERVER['HTTP_HOST'] . "/services");
         define('PATH'           , realpath('./'));
-        define('TITLE'          , "CRUD - Aplicação MVC em PHP - DevMedia");
+        define('TITLE'          , "Gerenciamento de Serviços Mobile");
         define('DB_HOST'        , "localhost");
         define('DB_USER'        , "root");
-        define('DB_PASSWORD'    , "secret");
-        define('DB_NAME'        , "teste");
+        define('DB_PASSWORD'    , "dsfr1310");
+        define('DB_NAME'        , "services");
         define('DB_DRIVER'      , "mysql");
 
         $this->url();
