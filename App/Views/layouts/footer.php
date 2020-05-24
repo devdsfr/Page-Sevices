@@ -1,7 +1,7 @@
     <footer class="footer">
         <div class="container">
             <p class="text-muted">
-                Rodapé :)
+                Desenvolvido por DSFR Software
             </p>
         </div>
     </footer>

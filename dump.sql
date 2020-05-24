@@ -40,3 +40,11 @@ INSERT INTO produto (nome,marca_id,preco,quantidade,descricao,dataCadastro) VALU
   ('MotoX 4',3,'100.10',1,'Telefone',NOW()),
   ('MotoX 5',3,'500.10',1,'Telefone',NOW()),
   ('MotoX 6',3,'800.10',1,'Telefone',NOW());
+
+
+CREATE TABLE usuario
+(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL
+);
