@@ -7,6 +7,8 @@ class Usuario
     private $id;
     private $nome;
     private $email;
+    private $cpf;
+    private $telefone;
 
     public function getId()
     {
@@ -36,5 +38,25 @@ class Usuario
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+
+    public function getCpf()
+    {
+        return $this->cpf;
+    }
+
+    public function setCpf($cpf)
+    {
+        $this->cpf = $cpf;
+    }
+
+    public function getTelefone()
+    {
+        return $this->telefone;
+    }
+
+    public function setTelefone($telefone)
+    {
+        $this->telefone = $telefone;
     }
 }

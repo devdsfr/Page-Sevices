@@ -11,19 +11,15 @@
             <form action="http://<?php echo APP_HOST; ?>/usuario/salvar" method="post" id="form_cadastro">
                 <div class="form-group">
                     <label for="nome">Nome</label>
-                    <input type="text" class="form-control"  name="nome" placeholder="Seu nome" value="<?php echo $Sessao::retornaValorFormulario('nome'); ?>" required>
+                    <input type="text" class="form-control" name="nome" placeholder="Seu nome" value="<?php echo $Sessao::retornaValorFormulario('nome'); ?>" required>
+                </div>                
+                <div class="form-group">
+                    <label for="cpf">CPF</label>
+                    <input type="text" class="form-control" name="cpf" placeholder="xxx.xxx.xxx-xx" value="<?php echo $Sessao::retornaValorFormulario('cpf'); ?>" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Tipo Pessoa</label>
-                    <input type="email" class="form-control" name="tippes" placeholder="Cliente ou Funcionário" value="<?php echo $Sessao::retornaValorFormulario('email'); ?>" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">CPF</label>
-                    <input type="email" class="form-control" name="cpf" placeholder="xxx.xxx.xxx-xx" value="<?php echo $Sessao::retornaValorFormulario('email'); ?>" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Telefone</label>
-                    <input type="email" class="form-control" name="telefone" placeholder="" value="<?php echo $Sessao::retornaValorFormulario('email'); ?>" required>
+                    <label for="telefone">Telefone</label>
+                    <input type="text" class="form-control" name="telefone" placeholder="Infome seu telefone" value="<?php echo $Sessao::retornaValorFormulario('telefone'); ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="email">E-mail</label>

@@ -21,6 +21,8 @@ class UsuarioController extends Controller
         $Usuario = new Usuario();
         $Usuario->setNome($_POST['nome']);
         $Usuario->setEmail($_POST['email']);
+        $Usuario->setCpf($_POST['cpf']);
+        $Usuario->setTelefone($_POST['telefone']);
 
         Sessao::gravaFormulario($_POST);
 
