@@ -1,3 +1,6 @@
+<head>
+    <link rel="stylesheet" href="../public/css/estilo_lista.css">
+</head>
 <div class="container">
     <div class="row">
         <div class="col-md-3"></div>
@@ -21,7 +24,7 @@
                 </div>
                 <div class="form-group">
                     <label for="preco">Preço</label>
-                    R$ <input type="text" class="form-control" name="preco" placeholder="100" value="<?php echo $Sessao::retornaValorFormulario('preco'); ?>" required>
+                    R$ <input type="text" class="form-control" name="preco" placeholder="100R$" value="<?php echo $Sessao::retornaValorFormulario('preco'); ?>" required>
 
                 </div>
                 <div class="form-group">

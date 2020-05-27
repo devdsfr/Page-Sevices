@@ -1,3 +1,6 @@
+<head>
+    <link rel="stylesheet" href="./public/css/main.css">
+</head>
 <div class="container">
     <div class="row">
         <div class="col-md-3"></div>

@@ -1,0 +1,12 @@
+body {
+    background:#836fff;
+}
+.table-responsive{
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.37);
+    margin-bottom: 30px;
+    border: 2px solid #836fff;
+   
+}

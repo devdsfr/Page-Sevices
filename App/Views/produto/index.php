@@ -1,3 +1,8 @@
+<head>
+<link rel="stylesheet" href="./public/css/estilo_index.css">
+
+</head>
+
 <div class="container">
     <div class="row">
     <br>

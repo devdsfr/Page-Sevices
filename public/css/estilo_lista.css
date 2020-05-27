@@ -1,0 +1,33 @@
+body {
+    background: #836fff;
+}
+h3 {
+    color: white;
+}
+
+#form_cadastro {
+    background: white;
+    color: black;
+    padding: 30px;
+    box-shadow: 15px 15px 15px 15px rgba(0, 0, 0, 0.226);
+    border-radius: 20px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    gap: 5px;
+    box-sizing: border-box;
+    
+}
+.container form div:nth-child(3),
+.container form div:nth-child(4),
+.container form div:nth-child(5) {
+    grid-column: span 2;
+}
+.container button {
+    width: 150px;
+    height: 40px;
+    background: #836fff;
+}
+.container button:hover {
+    background:#826fffa8
+}

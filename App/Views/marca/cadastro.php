@@ -1,3 +1,7 @@
+<head>
+    <link rel="stylesheet" href="../public/css/estilo_cad_marca.css">
+</head>
+
 <div class="container">
     <div class="row">
         <div class="col-md-3"></div>
