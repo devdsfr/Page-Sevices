@@ -5,27 +5,29 @@ namespace App\Controllers;
 use App\Lib\Sessao;
 use App\Models\DAO\MarcaDAO;
 use App\Models\DAO\ProdutoDAO;
-use App\Models\Entidades\Produto;
-use App\Models\Validacao\ProdutoValidador;
+use App\Models\DAO\UsuarioDAO;
+use App\Models\DAO\ServicoDAO;
+use App\Models\Entidades\Servico;
+use App\Models\Validacao\ServicoValidador;
 
-class ProdutoController extends Controller
+class ServicoController extends Controller
 {
     public function index()
     {
-        $produtoDAO = new ProdutoDAO();
+        $servicoDAO = new ServicoDAO();
 
-        self::setViewParam('listaProdutos',$produtoDAO->listar());
+        self::setViewParam('listaServicos',$servicoDAO->listar());
 
-        $this->render('/produto/index');
+        $this->render('/servico/index');
 
         Sessao::limpaMensagem();
     }
 
     public function cadastro()
     {
-        $marcaDAO = new MarcaDAO();
-        self::setViewParam('listaMarcas',$marcaDAO->listar());
-        $this->render('/produto/cadastro');
+        $usuarioDAO = new UsuarioDAO();
+        self::setViewParam('listaUsuarios',$usuarioDAO->listar());
+        $this->render('/servico/cadastro');
 
         Sessao::limpaFormulario();
         Sessao::limpaMensagem();
@@ -34,32 +36,31 @@ class ProdutoController extends Controller
 
     public function salvar()
     {
-        $Produto = new Produto();
-        $Produto->setNome($_POST['nome']);
-        $Produto->setPreco($_POST['preco']);
-        $Produto->setQuantidade($_POST['quantidade']);
-        $Produto->setDescricao($_POST['descricao']);
-        $Produto->getMarca()->setId($_POST['marca_id']);
+        $Servico = new Servico();
+        
+        $Servico->setDescricao($_POST['descricao']);
+        $Servico->setDataServico($_POST['dataServico']);
+        $Servico->getUsuario()->setId($_POST['usuario_id']);        
 
         Sessao::gravaFormulario($_POST);
 
-        $produtoValidador = new ProdutoValidador();
-        $resultadoValidacao = $produtoValidador->validar($Produto);
+        $servicoValidador = new ServicoValidador();
+        $resultadoValidacao = $servicoValidador->validar($Servico);
 
         if($resultadoValidacao->getErros()){
             Sessao::gravaErro($resultadoValidacao->getErros());
-            $this->redirect('/produto/cadastro');
+            $this->redirect('/servico/cadastro');
         }
 
-        $produtoDAO = new ProdutoDAO();
+        $servicoDAO = new ServicoDAO();
 
-        $produtoDAO->salvar($Produto);
+        $servicoDAO->salvar($Servico);
         
         Sessao::limpaFormulario();
         Sessao::limpaMensagem();
         Sessao::limpaErro();
 
-        $this->redirect('/produto');
+        $this->redirect('/servico');
       
     }
     
@@ -67,19 +68,19 @@ class ProdutoController extends Controller
     {
         $id = $params[0];
 
-        $produtoDAO = new ProdutoDAO();
+        $servicoDAO = new ServicoDAO();
 
-        $produto = $produtoDAO->getById($id);
+        $servico = $servicoDAO->getById($id);
 
-        if(!$produto){
+        if(!$servico){
             Sessao::gravaMensagem("Produto inexistente");
-            $this->redirect('/produto');
+            $this->redirect('/servico');
         }
 
-        $marcaDAO = new MarcaDAO();
-        self::setViewParam('listaMarcas',$marcaDAO->listar());
-        self::setViewParam('produto',$produto);
-        $this->render('/produto/editar');
+        $usuarioDAO = new UsuarioDAO();
+        self::setViewParam('listaUsuarios',$usuarioDAO->listar());
+        self::setViewParam('servico',$servico);
+        $this->render('/servico/editar');
 
         Sessao::limpaMensagem();
 
@@ -88,33 +89,30 @@ class ProdutoController extends Controller
     public function atualizar()
     {
 
-        $Produto = new Produto();
-        $Produto->setId($_POST['id']);
-        $Produto->setNome($_POST['nome']);
-        $Produto->setPreco($_POST['preco']);
-        $Produto->setQuantidade($_POST['quantidade']);
-        $Produto->setDescricao($_POST['descricao']);
-        $Produto->getMarca()->setId($_POST['marca_id']);
+        $Servico = new Servico();
+        $Servico->setId($_POST['id']);        
+        $Servico->setDescricao($_POST['descricao']);
+        $Servico->getUsuario()->setId($_POST['usuario_id']);        
 
         Sessao::gravaFormulario($_POST);
 
-        $produtoValidador = new ProdutoValidador();
-        $resultadoValidacao = $produtoValidador->validar($Produto);
+        $servicoValidador = new ServicoValidador();
+        $resultadoValidacao = $servicoValidador->validar($Servico);
 
         if($resultadoValidacao->getErros()){
             Sessao::gravaErro($resultadoValidacao->getErros());
-            $this->redirect('/produto/edicao/'.$_POST['id']);
+            $this->redirect('/servico/edicao/'.$_POST['id']);
         }
 
-        $produtoDAO = new ProdutoDAO();
+        $servicoDAO = new ServicoDAO();
 
-        $produtoDAO->atualizar($Produto);
+        $servicoDAO->atualizar($Servico);
 
         Sessao::limpaFormulario();
         Sessao::limpaMensagem();
         Sessao::limpaErro();
 
-        $this->redirect('/produto');
+        $this->redirect('/servico');
 
     }
     
@@ -122,18 +120,18 @@ class ProdutoController extends Controller
     {
         $id = $params[0];
 
-        $produtoDAO = new ProdutoDAO();
+        $servicoDAO = new ServicoDAO();
 
-        $produto = $produtoDAO->getById($id);
+        $servico = $servicoDAO->getById($id);
 
-        if(!$produto){
-            Sessao::gravaMensagem("Produto inexistente");
-            $this->redirect('/produto');
+        if(!$servico){
+            Sessao::gravaMensagem("Servico inexistente");
+            $this->redirect('/servico');
         }
 
-        self::setViewParam('produto',$produto);
+        self::setViewParam('servico',$servico);
 
-        $this->render('/produto/exclusao');
+        $this->render('/servico/exclusao');
 
         Sessao::limpaMensagem();
 
@@ -141,19 +139,19 @@ class ProdutoController extends Controller
 
     public function excluir()
     {
-        $Produto = new Produto();
-        $Produto->setId($_POST['id']);
+        $Servico = new Servico();
+        $Servico->setId($_POST['id']);
 
-        $produtoDAO = new ProdutoDAO();
+        $servicoDAO = new ServicoDAO();
 
-        if(!$produtoDAO->excluir($Produto)){
-            Sessao::gravaMensagem("Produto inexistente");
-            $this->redirect('/produto');
+        if(!$servicoDAO->excluir($Servico)){
+            Sessao::gravaMensagem("Servico inexistente");
+            $this->redirect('/servico');
         }
 
-        Sessao::gravaMensagem("Produto excluido com sucesso!");
+        Sessao::gravaMensagem("Servico excluido com sucesso!");
 
-        $this->redirect('/produto');
+        $this->redirect('/servico');
 
     }
 }

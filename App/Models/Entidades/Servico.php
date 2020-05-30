@@ -4,21 +4,18 @@ namespace App\Models\Entidades;
 
 use DateTime;
 
-class Produto
+class Servico
 {
     private $id;
-    private $nome;
-    private $preco;
-    private $quantidade;
+    private $usuario;    
     private $descricao;
-    private $dataCadastro;
-    private $marca;
+    private $dataServico;    
 
-
+    
     public function __construct()
     {
-        $this->marca = new Marca();
-    }
+        $this->usuario = new Usuario();
+    }  
 
     public function getId()
     {
@@ -28,46 +25,17 @@ class Produto
     public function setId($id)
     {
         $this->id = $id;
-    }
-    public function getMarcaId()
+    }  
+
+    public function getUsuarioId()
     {
-        return $this->marca_id;
+        return $this->usuario_id;
     }
 
-    public function setMarcaId($marca_id)
+    public function setUsuarioId($usuario_id)
     {
-        $this->marca_id = $marca_id;
-    }
-
-    public function getNome()
-    {
-        return $this->nome;
-    }
-
-    public function setNome($nome)
-    {
-        $this->nome = $nome;
-    }
-
-    public function getPreco()
-    {
-        return $this->preco;
-    }
-
-    public function setPreco($preco)
-    {
-        $this->preco = $preco;
-    }
-
-    public function getQuantidade()
-    {
-        return $this->quantidade;
-    }
-
-    public function setQuantidade($quantidade)
-    {
-        $this->quantidade = $quantidade;
-    }
+        $this->usuario_id = $usuario_id;
+    }      
 
     public function getDescricao()
     {
@@ -79,19 +47,20 @@ class Produto
         $this->descricao = $descricao;
     }
 
-    public function getDataCadastro()
+    public function getDataServico()
     {
-        return new DateTime($this->dataCadastro);
+        return $this->dataServico;
     }
 
-    public function setDataCadastro($dataCadastro)
+    public function setDataServico($dataServico)
     {
-        $this->dataCadastro = $dataCadastro;
+        $this->dataServico = $dataServico;
     }
+    
 
-    public function getMarca()
+    public function getUsuario()
     {
-        return $this->marca;
+        return $this->usuario;
     }
 
 }

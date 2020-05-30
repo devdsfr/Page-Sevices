@@ -2,38 +2,33 @@
 
 namespace App\Models\DAO;
 
-use App\Models\Entidades\Produto;
+use App\Models\Entidades\Servico;
 
-class ProdutoDAO extends BaseDAO
+class ServicoDAO extends BaseDAO
 {
     public  function getById($id)
     {
         $resultado = $this->select(
-            "SELECT p.id as idProduto,
-                    m.id as idMarca,
-                    p.nome as nomeProduto, 
-                    p.preco, 
-                    p.quantidade, 
-                    p.descricao, 
-                    m.nome as nomeMarca 
-             FROM produto as p
-             INNER JOIN marca as m ON p.marca_id = m.id
-             WHERE p.id = $id"
+            "SELECT s.id as idServico,                   
+                    u.id as idUsuario,                                        
+                    s.descricao,
+                    s.dataServico,
+                    u.nome as nomeUsuario                 
+            FROM servico as s
+            INNER JOIN usuario as u ON u.id = s.usuario_id            
+            WHERE s.id = $id"
         );
 
-        $dataSetProdutos = $resultado->fetch();
+        $dataSetServicos = $resultado->fetch();
 
-        if($dataSetProdutos) {
-            $Produto = new Produto();
-            $Produto->setId($dataSetProdutos['idProduto']);
-            $Produto->setNome($dataSetProdutos['nomeProduto']);
-            $Produto->setPreco($dataSetProdutos['preco']);
-            $Produto->setQuantidade($dataSetProdutos['quantidade']);
-            $Produto->setDescricao($dataSetProdutos['descricao']);
-            $Produto->getMarca()->setNome($dataSetProdutos['nomeMarca']);
-            $Produto->getMarca()->setId($dataSetProdutos['idMarca']);
+        if($dataSetServicos) {
+            $Servico = new Servico();
+            $Servico->setId($dataSetServicos['idServico']);            
+            $Servico->getUsuario()->setNome($dataSetServicos['nomeUsuario']);
+            $Servico->getUsuario()->setId($dataSetServicos['idUsuario']);            
+            $Servico->setDescricao($dataSetServicos['descricao']);
 
-            return $Produto;
+            return $Servico;
         }
 
         return false;
@@ -43,55 +38,51 @@ class ProdutoDAO extends BaseDAO
     {
 
             $resultado = $this->select(
-                'SELECT  p.id as idProduto, 
-                              p.nome as nomeProduto, 
-                              p.preco, 
-                              m.nome as nomeMarca 
-                              FROM produto as p
-                      INNER JOIN marca as m ON p.marca_id = m.id 
+                'SELECT s.id as idServico,                         
+                        u.nome as nomeUsuario,                        
+                        s.descricao, 
+                        s.dataServico
+                FROM servico as s
+                INNER JOIN usuario as u ON u.id = s.usuario_id 
+                
                       '
             );
-            $dataSetProdutos = $resultado->fetchAll();
+            $dataSetServicos = $resultado->fetchAll();
 
-            if($dataSetProdutos) {
+            if($dataSetServicos) {
 
-                $listaProdutos = [];
+                $listaServicos = [];
 
-                foreach($dataSetProdutos as $dataSetProduto) {
-                    $Produto = new Produto();
-                    $Produto->setId($dataSetProduto['idProduto']);
-                    $Produto->setNome($dataSetProduto['nomeProduto']);
-                    $Produto->setPreco($dataSetProduto['preco']);
-                    $Produto->getMarca()->setNome($dataSetProduto['nomeMarca']);
-
-                    $listaProdutos[] = $Produto;
+                foreach($dataSetServicos as $dataSetServico) {
+                    $Servico = new Servico();
+                    $Servico->setId($dataSetServico['idProduto']);                    
+                    $Servico->getUsuario()->setNome($dataSetServico['nomeUsuario']);                    
+                    $Servico->setDescricao($dataSetServico['descricao']); 
+                    $listaServicos[] = $Servico;
                 }
 
-                return $listaProdutos;
+                return $listaServicos;
             }
 
         return false;
     }
 
-    public  function salvar(Produto $produto) 
+    public  function salvar(Servico $servico) 
     {
-        try {
-
-            $nome           = $produto->getNome();
-            $preco          = $produto->getPreco();
-            $quantidade     = $produto->getQuantidade();
-            $descricao      = $produto->getDescricao();
-            $marca_id       = $produto->getMarca()->getId();
+        try {            
+            
+            $usuario_id     = $servico->getUsuario()->getId();            
+            $descricao      = $servico->getDescricao();
+            $dataServico    = $servico->getDataServico();
 
             return $this->insert(
-                'produto',
-                ":nome,:preco,:quantidade,:descricao,:marca_id",
+                'servico',
+                ":usuario_id,:descricao,:dataServico",
                 [
-                    ':nome'=>$nome,
-                    ':preco'=>$preco,
-                    ':quantidade'=>$quantidade,
+                    ':usuario_id'=>$usuario_id,                    
                     ':descricao'=>$descricao,
-                    ':marca_id'=>$marca_id,
+                    ':dataServico'=>$dataServico,
+                    
                 ]
             );
 
@@ -100,27 +91,23 @@ class ProdutoDAO extends BaseDAO
         }
     }
 
-    public  function atualizar(Produto $produto) 
+    public  function atualizar(Servico $servico) 
     {
         try {
 
-            $id             = $produto->getId();
-            $nome           = $produto->getNome();
-            $preco          = $produto->getPreco();
-            $quantidade     = $produto->getQuantidade();
-            $descricao      = $produto->getDescricao();
-            $marca_id       = $produto->getMarca()->getId();
+            $id             = $servico->getId();
+            $usuario_id     = $servico->getUsuario()->getId();            
+            $descricao      = $servico->getDescricao();
+            $dataServico    = $servico->getDataServico();
 
             return $this->update(
-                'produto',
-                "nome = :nome, preco = :preco, quantidade = :quantidade, descricao = :descricao, marca_id = :marca_id",
+                'servico',
+                "usuario_id = :usuario_id, descricao = :descricao, dataServico = :dataServico",
                 [
                     ':id'=>$id,
-                    ':nome'=>$nome,
-                    ':preco'=>$preco,
-                    ':quantidade'=>$quantidade,
+                    ':usuario_id'=> $usuario_id,                    
                     ':descricao'=>$descricao,
-                    ':marca_id'=> $marca_id,
+                    ':dataServico'=>$dataServico,
                 ],
                 "id = :id"
             );
@@ -130,12 +117,12 @@ class ProdutoDAO extends BaseDAO
         }
     }
 
-    public function excluir(Produto $produto)
+    public function excluir(Servico $servico)
     {
         try {
-            $id = $produto->getId();
+            $id = $servico->getId();
 
-            return $this->delete('produto',"id = $id");
+            return $this->delete('servico',"id = $id");
 
         }catch (Exception $e){
 

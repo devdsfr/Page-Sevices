@@ -6,6 +6,39 @@ use App\Models\Entidades\Usuario;
 
 class UsuarioDAO extends BaseDAO
 {
+    public  function getById($id)
+    {
+        $resultado = $this->select(
+            "SELECT id, nome FROM usuario WHERE id = $id"
+        );
+
+        return $resultado->fetchObject(Marca::class);
+
+    }
+    public  function listar()
+    {
+
+        $resultado = $this->select(
+            'SELECT id, nome FROM usuario'
+        );
+        return $resultado->fetchAll(\PDO::FETCH_CLASS, Usuario::class);
+
+    }
+    public  function getQuantidadeProdutos($id)
+    {
+        if($id) {
+            $resultado = $this->select(
+                "SELECT count(*) as total FROM servico WHERE usuario_id= $id"
+            );
+
+            return $resultado->fetch()['total'];
+        }
+
+        return false;
+    }
+    
+    
+    
     public function verificaEmail($email)
     {
         try {

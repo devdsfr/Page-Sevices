@@ -26,7 +26,7 @@
                 <li <?php if($viewVar['nameController'] == "ServicoController" && $viewVar['nameAction'] == "") { ?> class="active" <?php } ?>>
                     <a href="http://<?php echo APP_HOST; ?>/servico" >Ordem de Serviços</a>
                 </li>       
-                <li <?php if($viewVar['nameController'] == "LoginController" && $viewVar['nameAction'] =="") { ?> class="active" <?php } ?>>
+                <li <?php if($viewVar['nameController'] == "LoginController" && $viewVar['nameAction'] =="cadastro") { ?> class="active" <?php } ?>>
                     <a href="http://<?php echo APP_HOST; ?>/login" >Permissões de acesso</a>
                 </li>          
             </ul>
