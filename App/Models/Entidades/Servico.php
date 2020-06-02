@@ -55,8 +55,7 @@ class Servico
     public function setDataServico($dataServico)
     {
         $this->dataServico = $dataServico;
-    }
-    
+    }    
 
     public function getUsuario()
     {
