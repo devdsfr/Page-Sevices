@@ -39,6 +39,7 @@ class ServicoController extends Controller
         $Servico = new Servico();
         
         $Servico->setDescricao($_POST['descricao']);
+        $Servico->setPreco($_POST['preco']);
         $Servico->setDataServico($_POST['dataServico']);
         $Servico->getUsuario()->setId($_POST['usuario_id']);        
 
@@ -92,6 +93,7 @@ class ServicoController extends Controller
         $Servico = new Servico();
         $Servico->setId($_POST['id']);        
         $Servico->setDescricao($_POST['descricao']);
+        $Servico->setPreco($_POST['preco']);
         $Servico->getUsuario()->setId($_POST['usuario_id']);        
 
         Sessao::gravaFormulario($_POST);

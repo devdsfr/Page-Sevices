@@ -17,7 +17,7 @@
                     <label for="senha">Senha</label>
                     <input type="text" class="form-control" name="senha" placeholder="Senha alfanuméricos" value="<?php echo $Sessao::retornaValorFormulario('senha'); ?>" required>
                 </div>            
-                <button type="submit" class="btn btn-success btn-sm">Salvar</button>
+                <button type="submit" class="btn-cadastro-user">Salvar</button>
             </form>
         </div>
         <div class=" col-md-3"></div>

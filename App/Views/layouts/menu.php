@@ -7,30 +7,30 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://<?php echo APP_HOST; ?>">Serviços Mobile</a>
+            <a class="navbar-brand" href="http://<?php echo APP_HOST; ?>">Service</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li <?php if($viewVar['nameController'] == "HomeController") { ?> class="active" <?php } ?>>
                     <a href="http://<?php echo APP_HOST; ?>" >Home</a>
                 </li>
-                <li <?php if($viewVar['nameController'] == "CadastroController" && $viewVar['nameAction'] == "cadastro") { ?> class="active" <?php } ?>>
-                    <a href="http://<?php echo APP_HOST; ?>/usuario" >Cadastro de Pessoas</a>
+                <li <?php if($viewVar['nameController'] == "CadastroController" && $viewVar['nameAction'] == "") { ?> class="active" <?php } ?>>
+                    <a href="http://<?php echo APP_HOST; ?>/usuario" >Cadastro de Clientes</a>
                 </li>
                 <li <?php if($viewVar['nameController'] == "ProdutoController" && ($viewVar['nameAction'] == "" || $viewVar['nameAction'] == "index")) { ?> class="active" <?php } ?>>
                     <a href="http://<?php echo APP_HOST; ?>/produto" >Produtos</a>
                 </li>
-                <li <?php if($viewVar['nameController'] == "MarcaController" && $viewVar['nameAction'] == "cadastro") { ?> class="active" <?php } ?>>
+                <li <?php if($viewVar['nameController'] == "MarcaController" && $viewVar['nameAction'] == "") { ?> class="active" <?php } ?>>
                     <a href="http://<?php echo APP_HOST; ?>/marca" >Marcas</a>
                 </li>  
                 <li <?php if($viewVar['nameController'] == "ServicoController" && $viewVar['nameAction'] == "") { ?> class="active" <?php } ?>>
                     <a href="http://<?php echo APP_HOST; ?>/servico" >Ordem de Serviços</a>
                 </li>       
-                <li <?php if($viewVar['nameController'] == "LoginController" && $viewVar['nameAction'] =="cadastro") { ?> class="active" <?php } ?>>
+                <li <?php if($viewVar['nameController'] == "LoginController" && $viewVar['nameAction'] =="") { ?> class="active" <?php } ?>>
                     <a href="http://<?php echo APP_HOST; ?>/login" >Permissões de acesso</a>
                 </li>   
-                <li <?php if($viewVar['nameController'] == "ProdutosController" && ($viewVar['nameAction'] == "" || $viewVar['nameAction'] == "index")) { ?> class="active" <?php } ?>>
-                    <a href="http://<?php echo APP_HOST; ?>/produtos" >Lista de Produtos</a>
+                <li <?php if($viewVar['nameController'] == "ProdutosController" && ($viewVar['nameAction'] == "lista" || $viewVar['nameAction'] == "index")) { ?> class="active" <?php } ?>>
+                    <a href="http://<?php echo APP_HOST; ?>/produtos" >Relatório de Servicos</a>
                 </li>       
             </ul>
         </div>

@@ -1,0 +1,58 @@
+/*Tirando todas as margins do body*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Colocando no cento da pagina*/
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #836fff;
+    margin: auto;
+    
+}
+h1{
+    color:white;
+    text-align: center;
+    border-right: solid 2px rgba(255, 255, 255, 0.75);
+    margin: 0 auto;
+    font-size: 3em;
+    
+
+    
+
+    white-space: nowrap;
+    overflow: hidden;
+    
+}
+.typing-animation {
+    animation: blinkCursor 500ms infinite normal steps(40), typing 4s steps(40) 1s normal both;
+}
+
+/*KeyFrames é uma tecnica no css onde consigo fazer animação, determinar o estado da animação*/
+@keyframes blinkCursor {
+    from {
+        border-right-color:rgba(255, 255, 255, 0.75);
+
+    }
+    to {
+       
+        border-right-color:transparent
+
+    }
+}
+
+/*Colocando para se movimentar meu h1*/
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 16.5em;
+    }
+}

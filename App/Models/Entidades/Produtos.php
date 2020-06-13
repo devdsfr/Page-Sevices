@@ -8,10 +8,7 @@ class Produtos
 {
     private $id;
     private $nome;
-    private $preco;
-    private $unidade;
-    private $status;
-    private $ean;
+    private $preco;    
     private $descricao;
     private $dataCadastro;
  
@@ -43,27 +40,8 @@ class Produtos
     public function setPreco($preco)
     {
         $this->preco = $preco;
-    }
- 
-    public function getUnidade()
-    {
-        return $this->unidade;
-    }
- 
-    public function setUnidade($unidade)
-    {
-        $this->unidade = $unidade;
-    }
-     
-    public function getEan()
-    {
-        return $this->ean;
-    }
- 
-    public function setEan($ean)
-    {
-        $this->ean = $ean;
-    }
+    } 
+    
  
     public function getDescricao()
     {
@@ -92,4 +70,24 @@ class Produtos
     {
         $this->status = $status;
     }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    public function getDataServico()
+    {
+        return $this->dataServico;
+    }
+
+    public function setDataServico($dataServico)
+    {
+        $this->dataServico = $dataServico;
+    } 
 }

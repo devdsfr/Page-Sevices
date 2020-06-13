@@ -9,8 +9,7 @@ use App\Models\Entidades\Produto;
 use App\Models\Validacao\ProdutoValidador;
 
 class ProdutoController extends Controller
-{   
-
+{
     public function index()
     {
         $produtoDAO = new ProdutoDAO();

@@ -1,8 +1,15 @@
+<!--
+    <head>
+    <link rel="stylesheet" href="../public/css/estilo_lista.css">
+</head>
+-->
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <h3>Cadastro de Produto</h3>
+            <h3>Cadastro de Produto <img src="https://image.flaticon.com/icons/svg/2825/2825867.svg" alt="" width = "45"></h3>
             
             <?php if($Sessao::retornaErro()){ ?>
                 <div class="alert alert-warning" role="alert">
@@ -21,7 +28,7 @@
                 </div>
                 <div class="form-group">
                     <label for="preco">Preço</label>
-                    R$ <input type="text" class="form-control" name="preco" placeholder="100" value="<?php echo $Sessao::retornaValorFormulario('preco'); ?>" required>
+                    R$ <input type="text" class="form-control" name="preco" placeholder="100R$" value="<?php echo $Sessao::retornaValorFormulario('preco'); ?>" required>
 
                 </div>
                 <div class="form-group">
@@ -44,7 +51,7 @@
                 </select>
                 </div>
 
-                <button type="submit" class="btn btn-success btn-sm">Salvar</button>
+                <button type="submit" class="btn-cadastro-prod">Salvar</button>
             </form>
         </div>
         <div class=" col-md-3"></div>

@@ -1,8 +1,17 @@
+<!--
+    <head>
+    <link rel="stylesheet" href="../public/css/estilo_cad_marca.css">
+</head>
+
+-->
+
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <h3>Cadastro de Marca</h3>
+            <h3>  Cadastro de Marca</h3>
             
             <?php if($Sessao::retornaErro()){ ?>
                 <div class="alert alert-warning" role="alert">
@@ -20,7 +29,7 @@
 
                 </div>
 
-                <button type="submit" class="btn btn-success btn-sm">Salvar</button>
+                <button type="submit" class="btn-cadastro-marca">Salvar</button>
             </form>
         </div>
         <div class=" col-md-3"></div>

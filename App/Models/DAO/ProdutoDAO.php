@@ -5,7 +5,7 @@ namespace App\Models\DAO;
 use App\Models\Entidades\Produto;
 
 class ProdutoDAO extends BaseDAO
-{       
+{
     public  function getById($id)
     {
         $resultado = $this->select(

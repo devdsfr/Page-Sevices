@@ -1,8 +1,17 @@
+<!--
+    <head>
+<link rel="stylesheet" href="./public/css/estilo_index.css">
+
+</head>
+
+-->
+
+
 <div class="container">
     <div class="row">
     <br>
     <div class="col-md-12">
-        <a href="http://<?php echo APP_HOST; ?>/produto/cadastro" class="btn btn-success btn-sm">Adicionar</a>
+        <a href="http://<?php echo APP_HOST; ?>/produto/cadastro" class="btn-adicionar">Adicionar</a>
         <hr>
     </div>
     <div class="col-md-12">

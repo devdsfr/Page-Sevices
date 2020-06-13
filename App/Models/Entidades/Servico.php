@@ -9,6 +9,7 @@ class Servico
     private $id;
     private $usuario;    
     private $descricao;
+    private $preco;
     private $dataServico;    
 
     
@@ -45,6 +46,16 @@ class Servico
     public function setDescricao($descricao)
     {
         $this->descricao = $descricao;
+    }
+
+    public function getPreco()
+    {
+        return $this->preco;
+    }
+
+    public function setPreco($preco)
+    {
+        $this->preco = $preco;
     }
 
     public function getDataServico()

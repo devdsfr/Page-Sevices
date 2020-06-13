@@ -2,7 +2,7 @@
     <div class="row">
         <br>
         <div class="col-md-12">
-            <a href="http://<?php echo APP_HOST; ?>/marca/cadastro" class="btn btn-success btn-sm">Adicionar</a>
+            <a href="http://<?php echo APP_HOST; ?>/marca/cadastro" class="btn-adicionar-marca">Adicionar</a>
             <hr>
         </div>
         <div class="col-md-12">

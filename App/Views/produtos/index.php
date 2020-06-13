@@ -30,12 +30,11 @@
     </div>
     <div class="row">    
         <div class="col-md-12 col-lg-12">
-            <hr>
- 
+            <hr> 
             <?php
                 if(!count($viewVar['listaProdutos'])){
             ?>
-                <div class="alert alert-info" role="alert">Efetue uma busca para exibir o seu produto.</div>
+                <div class="alert alert-info" role="alert">Efetue uma busca para exibir o seu serviço.</div>
             <?php
                 } else {
             ?>
@@ -49,18 +48,18 @@
                     <table class="table table-bordered table-hover">
                         <tr>
                             <td class="info">Nome</td>
-                            <td class="info hidden-sm hidden-xs">EAN</td>
-                            <td class="info hidden-sm hidden-xs">Status</td>
-                            <td class="info hidden-sm hidden-xs">Data Cadastro</td>
+                            <td class="info hidden-sm hidden-xs">Descrição</td>
+                            <td class="info hidden-sm hidden-xs">Email</td>
+                            <td class="info hidden-sm hidden-xs">Data do Servico</td>
                         </tr>
                         <?php
                             foreach($viewVar['listaProdutos'] as $produtos) {
                         ?>
                             <tr class="<?php echo ($produtos->getStatus() == "N") ? "linhaDesativado" : ""; ?>">
                                 <td><?php echo $produtos->getNome(); ?></td>
-                                <td class=" hidden-sm hidden-xs"><?php echo $produtos->getEan(); ?></td>
-                                <td class=" hidden-sm hidden-xs"><?php echo ($produtos->getStatus() == 'S') ? 'Ativo' : 'Desativado'; ?></td>
-                                <td class=" hidden-sm hidden-xs"><?php echo $produtos->getDataCadastro()->format('d/m/Y'); ?></td>
+                                <td class=" hidden-sm hidden-xs"><?php echo $produtos->getDescricao(); ?></td>       
+                                <td class=" hidden-sm hidden-xs"><?php echo $produtos->getEmail(); ?></td>    
+                                <td class=" hidden-sm hidden-xs"><?php echo $produtos->getDataServico(); ?></td>                  
                             </tr>
                         <?php
                             }

@@ -1,3 +1,10 @@
+<!--
+    <head>
+    <link rel="stylesheet" href="./public/css/main.css">
+</head>
+
+-->
+
 <div class="container">
     <div class="row">
         <div class="col-md-3"></div>
@@ -22,8 +29,8 @@
                     <input type="text"  class="form-control" name="nome" id="nome" placeholder="" value="<?php echo $viewVar['marca']->getNome(); ?>" required>
                 </div>
 
-                <button type="submit" class="btn btn-success btn-sm">Salvar</button>
-                <a href="http://<?php echo APP_HOST; ?>/marca" class="btn btn-info btn-sm">Voltar</a>
+                <button type="submit" class="btn-editar-marca">Salvar</button>
+                <a href="http://<?php echo APP_HOST; ?>/marca" class="btn-voltar-marca">Voltar</a>
             </form>
         </div>
         <div class=" col-md-3"></div>

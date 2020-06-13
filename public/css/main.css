@@ -3,10 +3,13 @@
 html {
     position: relative;
     min-height: 100%;
+    
 }
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+    background: #836fff;
+
 }
 .footer {
     position: absolute;
@@ -14,7 +17,7 @@ body {
     width: 100%;
     /* Set the fixed height of the footer here */
     height: 60px;
-    background-color: #f5f5f5;
+    background: #836fff;
 }
 
 /* Custom page CSS
@@ -26,9 +29,328 @@ body > .container {
 }
 .container .text-muted {
     margin: 20px 0;
+    color: white;
 }
 
 .footer > .container {
     padding-right: 15px;
     padding-left: 15px;
+        color: white
 }
+/*Aqui estamos mexendo em todos formulario da aplicação*/
+#form_cadastro {
+    background: white;
+    padding: 30px;
+    
+    background: white;
+    color: black;
+    padding: 30px;
+    box-shadow: 15px 15px 15px 15px rgba(0, 0, 0, 0.226);
+    border-radius: 20px;
+    border: solid 2px #836fff;
+    
+}
+#form_cadastro_marca{
+    background: white;
+    padding: 30px;
+    
+    background: white;
+    color: black;
+    padding: 30px;
+    box-shadow: 15px 15px 15px 15px rgba(0, 0, 0, 0.226);
+    border-radius: 20px;
+    border: solid 2px #836fff;
+}
+/*-------------------FIM---------------*/
+
+
+/*Aqui estamos mexendo em todas as tabelas da aplicação*/
+.table-responsive {
+    background: white;
+   
+    padding: 30px;
+    
+    background: white;
+    color: black;
+    padding: 30px;
+    box-shadow: 15px 15px 15px 15px rgba(0, 0, 0, 0.226);
+    border-radius: 20px;
+    border: solid 2px #836fff;
+
+}
+/*-------------------FIM---------------*/
+
+h3 {
+    color: white;
+    text-align: center;
+}
+
+
+/*Mexendo no botão cadastro pessoa*/
+.container .btn-cadastro-user  {
+    background: #836fff;
+    cursor: pointer;
+    width: 140px;
+    height: 40px;
+    color: white;
+    border-radius: 5px ;
+    position: relative;
+    border: none;
+    
+}
+.container .btn-cadastro-user:after,
+.container .btn-cadastro-user:before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: transform .3s ease-in-out;
+
+}
+.container .btn-cadastro-user:before{
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    transform: scaleY(0);
+}
+
+.container .btn-cadastro-user:after {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    transform: scaleX(0);
+
+}
+.container .btn-cadastro-user:hover:before {
+    transform: scaleY(1);
+}
+.container .btn-cadastro-user:hover:after {
+    transform: scaleX(1);
+}
+.btn-cadastro-user:hover {
+    background: #6fbbd3;
+}
+
+/*-------------------Fim botão cadastro-----------------------*/
+
+
+
+
+
+
+
+/*Mexendo botão excluir em excluir produto*/
+.container  .panel-footer [type="submit"]{
+    background: red;
+}
+/*-------------------FIM---------------*/
+
+/*Mexendo nos meus botão da lista (editar) e excluir*/
+.btn-info {
+    background: #016fb3;
+}
+.btn-danger {
+    background: red;
+}
+/*-------------------FIM---------------*/
+
+
+/*mexendo no botão voltar (excluir*/
+.container .panel-footer a {
+    background: #6fbbd3;
+    
+}
+/*-------------------FIM---------------*/
+
+
+
+
+
+/*Mexendo no botão adicionar das listas*/
+
+.container .btn-adicionar {
+    background: #016fb3;
+    
+    cursor: pointer;
+    width: 140px;
+    height: 40px;
+    color: white;
+    border-radius: 5px ;
+    
+    border: none;
+    padding: 15px;
+    
+    
+}
+.btn-adicionar:hover {
+    background: #6fbbd3;
+}
+/*-------------------FIM---------------*/
+
+
+
+
+
+/*Mexendo no botão adicionar marcas*/
+.container .btn-adicionar-marca {
+    background: #016fb3;
+    
+    cursor: pointer;
+    width: 140px;
+    height: 40px;
+    color: white;
+    border-radius: 5px ;
+    
+    border: none;
+    padding: 15px;
+
+}
+.btn-adicionar-marca:hover {
+    background: #6fbbd3;
+}
+/*-------------------FIM---------------*/
+
+
+/*Inicio Botão para cadastro de produtos*/
+.container .btn-cadastro-prod {
+    background: #836fff;
+    cursor: pointer;
+    width: 140px;
+    height: 40px;
+    color: white;
+    border-radius: 5px ;
+    position: relative;
+    border: none;
+
+}
+.container .btn-cadastro-prod:after,
+.container .btn-cadastro-prod:before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: transform .3s ease-in-out;
+
+}
+
+.container .btn-cadastro-prod:before{
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    transform: scaleY(0);
+}
+
+.container .btn-cadastro-prod:after {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    transform: scaleX(0);
+
+}
+.container .btn-cadastro-prod:hover:before {
+    transform: scaleY(1);
+}
+.container .btn-cadastro-prod:hover:after {
+    transform: scaleX(1);
+}
+.btn-cadastro-prod:hover {
+    background: #6fbbd3;
+}
+/*---------------FIM-----------------*/
+
+/*Mexendo no botão de salvar e voltar (editar Produtos*/
+.container .btn-salvar-edi {
+    background: #836fff;
+    cursor: pointer;
+    width: 80px;
+    height: 25px;
+    
+    
+    color: white;
+    border-radius: 5px ;
+    position: relative;
+    border: none;
+
+}
+.btn-salvar-edi:hover  {
+    background: #826fff91;
+}
+.container .btn-voltar {
+    background: #6fbbd3;
+    cursor: pointer;
+    padding: 5px 15px 5px 15px;
+
+    color: white;
+    border-radius: 5px ;
+    position: relative;
+    border: none;
+
+}
+
+
+/*----------------Fim---------------------------*/
+
+
+/*Inicio botaão para cadastro de marcas*/
+.container .btn-cadastro-marca {
+    background: #836fff;
+    cursor: pointer;
+    width: 140px;
+    height: 40px;
+    color: white;
+    border-radius: 5px ;
+    position: relative;
+    border: none;
+}
+.btn-cadastro-marca:hover {
+    background: #826fff91 ;
+}
+/*-------------FIM --------------*/
+
+
+
+
+/*INCIO BOTÃO EDITAR MARCA*/
+.container .btn-editar-marca {
+    background: #836ff3;
+    cursor: pointer;
+    padding: 6px 15px 6px 15px;
+
+    color: white;
+    border-radius: 5px ;
+    position: relative;
+    border: none;
+    
+
+}
+.btn-voltar-marca {
+    background: #6fbbd3;
+    cursor: pointer;
+    padding: 8px 15px 8px 15px;
+
+    color: white;
+    border-radius: 5px ;
+    position: relative;
+    border: none;
+
+}
+.btn-editar-marca:hover {
+    background: #826fff91 ;
+
+}
+
+.btn-voltar-marca:hover {
+    background: #826fff90;
+    color: white;
+    text-decoration: none;
+    
+}
+/*----------FIM-------------*/
+
+
+.navbar-inverse {
+    background-color: #483D8B;
+    border-color: #ffffff;
+}
+
+

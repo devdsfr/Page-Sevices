@@ -3,7 +3,7 @@
         <div class="col-md-3"></div>
         <div class="col-md-6">
 
-            <h3>Editar Produto</h3>
+            <h3>Editar Produto <img src="https://image.flaticon.com/icons/png/512/2399/2399903.png" alt="" width = "45"></h3>
 
             <?php if($Sessao::retornaErro()){ ?>
                 <div class="alert alert-warning" role="alert">
@@ -46,8 +46,8 @@
                     </select>
                 </div>
 
-                <button type="submit" class="btn btn-success btn-sm">Salvar</button>
-                <a href="http://<?php echo APP_HOST; ?>/produto" class="btn btn-info btn-sm">Voltar</a>
+                <button type="submit" class="btn-salvar-edi">Salvar</button>
+                <a href="http://<?php echo APP_HOST; ?>/produto" class="btn-voltar">Voltar</a>
             </form>
         </div>
         <div class=" col-md-3"></div>

@@ -1,7 +1,10 @@
-    <footer class="footer">
+<head>
+
+</head>
+<footer class="footer">
         <div class="container">
             <p class="text-muted">
-                Desenvolvido por DSFR Software
+               &copy; Desenvolvido por DSFR Software
             </p>
         </div>
     </footer>

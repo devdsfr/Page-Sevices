@@ -20,7 +20,7 @@ class App
          */
         define('APP_HOST'       , $_SERVER['HTTP_HOST'] . "/services");
         define('PATH'           , realpath('./'));
-        define('TITLE'          , "Gerenciamento de Serviços Mobile");
+        define('TITLE'          , "Serviços Mobile EPJ Celulares");
         define('DB_HOST'        , "localhost");
         define('DB_USER'        , "root");
         define('DB_PASSWORD'    , "dsfr1310");

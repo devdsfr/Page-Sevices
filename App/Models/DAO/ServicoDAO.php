@@ -13,6 +13,7 @@ class ServicoDAO extends BaseDAO
                     u.id as idUsuario,                                        
                     s.descricao,
                     s.dataServico,
+                    s.preco,
                     u.nome as nomeUsuario                 
             FROM servico as s
             INNER JOIN usuario as u ON u.id = s.usuario_id            
@@ -27,6 +28,7 @@ class ServicoDAO extends BaseDAO
             $Servico->getUsuario()->setNome($dataSetServicos['nomeUsuario']);
             $Servico->getUsuario()->setId($dataSetServicos['idUsuario']);            
             $Servico->setDescricao($dataSetServicos['descricao']);
+            $Servico->setPreco($dataSetServicos['preco']);
 
             return $Servico;
         }
@@ -41,7 +43,8 @@ class ServicoDAO extends BaseDAO
                 'SELECT s.id as idServico,                         
                         u.nome as nomeUsuario,                        
                         s.descricao, 
-                        s.dataServico
+                        s.dataServico,
+                        s.preco
                 FROM servico as s
                 INNER JOIN usuario as u ON u.id = s.usuario_id 
                 
@@ -56,7 +59,8 @@ class ServicoDAO extends BaseDAO
                 foreach($dataSetServicos as $dataSetServico) {
                     $Servico = new Servico();
                     $Servico->setId($dataSetServico['idProduto']);                    
-                    $Servico->getUsuario()->setNome($dataSetServico['nomeUsuario']);                    
+                    $Servico->getUsuario()->setNome($dataSetServico['nomeUsuario']); 
+                    $Servico->setPreco($dataSetServico['preco']);                    
                     $Servico->setDescricao($dataSetServico['descricao']); 
                     $listaServicos[] = $Servico;
                 }
@@ -73,14 +77,16 @@ class ServicoDAO extends BaseDAO
             
             $usuario_id     = $servico->getUsuario()->getId();            
             $descricao      = $servico->getDescricao();
+            $preco          = $servico->getPreco();
             $dataServico    = $servico->getDataServico();
 
             return $this->insert(
                 'servico',
-                ":usuario_id,:descricao,:dataServico",
+                ":usuario_id,:descricao,:preco,:dataServico",
                 [
                     ':usuario_id'=>$usuario_id,                    
                     ':descricao'=>$descricao,
+                    ':preco'=>$preco,
                     ':dataServico'=>$dataServico,
                     
                 ]
@@ -98,15 +104,17 @@ class ServicoDAO extends BaseDAO
             $id             = $servico->getId();
             $usuario_id     = $servico->getUsuario()->getId();            
             $descricao      = $servico->getDescricao();
+            $preco          = $servico->getPreco();
             $dataServico    = $servico->getDataServico();
 
             return $this->update(
                 'servico',
-                "usuario_id = :usuario_id, descricao = :descricao, dataServico = :dataServico",
+                "usuario_id = :usuario_id, descricao = :descricao, preco = :preco, dataServico = :dataServico",
                 [
                     ':id'=>$id,
                     ':usuario_id'=> $usuario_id,                    
                     ':descricao'=>$descricao,
+                    ':preco'=>$preco,
                     ':dataServico'=>$dataServico,
                 ],
                 "id = :id"
