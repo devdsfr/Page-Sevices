@@ -1,3 +1,4 @@
+--Criar um database com o nome de Service com a senha dsfr1310 
 -- Criando a tabela produto
 CREATE TABLE produto
 (
